@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
@@ -16,10 +17,12 @@ import CallHistoryPage from "./pages/CallHistoryPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
 import UserManagementPage from "./pages/UserManagementPage";
 import UserDetailPage from "./pages/UserDetailPage";
+import GitHubCallbackPage from "./pages/GitHubCallbackPage";
 import "./index.css";
 
 function App() {
   return (
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ""}>
     <Router>
       <AuthProvider>
         <Toaster
@@ -40,6 +43,7 @@ function App() {
             {/* Public routes */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/auth/github/callback" element={<GitHubCallbackPage />} />
 
             {/* Protected routes */}
             <Route
@@ -132,6 +136,7 @@ function App() {
         </div>
       </AuthProvider>
     </Router>
+    </GoogleOAuthProvider>
   );
 }
 
