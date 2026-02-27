@@ -2,9 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
+import LandingPage from "./pages/LandingPage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/DashboardPage";
@@ -19,6 +23,12 @@ import UserManagementPage from "./pages/UserManagementPage";
 import UserDetailPage from "./pages/UserDetailPage";
 import GitHubCallbackPage from "./pages/GitHubCallbackPage";
 import "./index.css";
+
+// Redirects authenticated users to dashboard, otherwise shows landing page
+const HomeRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : children;
+};
 
 function App() {
   return (
@@ -40,7 +50,20 @@ function App() {
         <div className="min-h-screen bg-gray-50">
           <Navbar />
           <Routes>
-            {/* Public routes */}
+            {/* Public pages – visible to all visitors */}
+            <Route
+              path="/"
+              element={
+                <HomeRoute>
+                  <LandingPage />
+                </HomeRoute>
+              }
+            />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+
+            {/* Auth routes */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/auth/github/callback" element={<GitHubCallbackPage />} />
@@ -130,8 +153,7 @@ function App() {
             />
 
             {/* Default redirect */}
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </AuthProvider>
