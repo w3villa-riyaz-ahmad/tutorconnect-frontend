@@ -27,7 +27,7 @@ const LandingPage = () => {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-400/5 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-22 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left – Copy */}
             <div className="text-center lg:text-left">
@@ -147,8 +147,8 @@ const LandingPage = () => {
         </div>
 
         {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="absolute -bottom-px left-0 right-0">
+          <svg className="block w-full" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path
               d="M0 50L48 45.7C96 41.3 192 32.7 288 30.2C384 27.7 480 31.3 576 38.5C672 45.7 768 56.3 864 58.8C960 61.3 1056 55.7 1152 48.5C1248 41.3 1344 32.7 1392 28.3L1440 24V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0V50Z"
               fill="white"
@@ -239,7 +239,7 @@ const LandingPage = () => {
       </section>
 
       {/* ─── How It Works Section ─── */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">
@@ -288,7 +288,7 @@ const LandingPage = () => {
                 </h3>
                 <p className="text-gray-500 max-w-xs mx-auto">{item.desc}</p>
                 {idx < 2 && (
-                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] border-t-2 border-dashed border-indigo-200" />
+                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] border-t-2 border-dashed border-indigo-200 overflow-hidden" />
                 )}
               </div>
             ))}

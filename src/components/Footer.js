@@ -140,7 +140,7 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <HiOutlineLocationMarker className="h-5 w-5 text-indigo-400 mt-0.5 flex-shrink-0" />
                 <span className="text-sm">
-                  123 Education Lane, Learning City, ED 45678
+                  B-49 TutorConnect 3rd floor, Knowledge City, noida, India
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -149,7 +149,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <HiOutlinePhone className="h-5 w-5 text-indigo-400 flex-shrink-0" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+91 1234567890</span>
               </li>
             </ul>
           </div>

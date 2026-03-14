@@ -20,7 +20,7 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* ─── Hero Banner ─── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 py-24">
         <div className="absolute top-10 right-20 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -38,8 +38,8 @@ const ServicesPage = () => {
             help you achieve your academic goals with personalized attention.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="absolute -bottom-px left-0 right-0">
+          <svg className="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path
               d="M0 40L60 35C120 30 240 20 360 22.5C480 25 600 40 720 45C840 50 960 45 1080 37.5C1200 30 1320 20 1380 15L1440 10V80H0V40Z"
               fill="white"

@@ -47,7 +47,7 @@ function App() {
             },
           }}
         />
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-white overflow-x-hidden">
           <Navbar />
           <Routes>
             {/* Public pages – visible to all visitors */}
